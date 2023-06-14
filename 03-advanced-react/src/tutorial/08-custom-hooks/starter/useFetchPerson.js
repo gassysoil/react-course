@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
-const useFetchPerson = (url) => {
+export default function useFetchPerson(name) {
+  const url = `https://api.github.com/users/${name}`;
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [user, setUser] = useState(null);
@@ -29,6 +30,4 @@ const useFetchPerson = (url) => {
   }, []);
 
   return { isLoading, isError, user };
-};
-
-export default useFetchPerson;
+}
